@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Page</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slack Name -->
+    <h1 data-testid="slackUserName">sanwo mueez</h1>
+
+    <!-- Slack Display Picture -->
+    <img src="mee.jpg" alt="sanwo mueez" data-testid="slackDisplayImage">
+
+    <!-- Current Day of the Week -->
+    <p data-testid="currentDayOfTheWeek">Tuesday</p>
+
+    <!-- Current UTC Time -->
+    <p data-testid="currentUTCTime"></p>
+
+    <!-- Track -->
+    <p data-testid="myTrack">Frontend</p>
+
+    <!-- GitHub URL -->
+    <a href="https://github.com/your-username/your-repository" data-testid="githubURL">GitHub Repository</a>
+
+    <!-- JavaScript to update the current UTC time -->
+    <script>
+        function updateUTCTime() {
+            const currentUTCTimeElement = document.querySelector('[data-testid="currentUTCTime"]');
+            const currentTime = new Date();
+            currentTime.setHours(currentTime.getHours() + 1);
+            const currentUTC = currentTime.toUTCString();
+            currentUTCTimeElement.textContent = currentUTC;
+        }
+
+        // Update the current UTC time on page load
+        updateUTCTime();
+
+        // Update the current UTC time every second
+        setInterval(updateUTCTime, 1000);
+    </script>
+</body>
+</html>
